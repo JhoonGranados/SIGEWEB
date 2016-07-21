@@ -1,0 +1,137 @@
+10
+
+dir
+2
+https://svn.riouxsvn.com/sig-escola/trunk/client/js/plugins
+https://svn.riouxsvn.com/sig-escola
+
+
+
+2016-06-02T16:10:39.762033Z
+2
+kaiqueorange
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+dd527549-6d7e-47af-ad78-071b8aa414da
+
+modals
+dir
+
+charts
+dir
+
+accordions
+dir
+
+pageprogressbar
+dir
+
+forms
+dir
+
+table
+dir
+
+tabs
+dir
+
+tooltip
+dir
+
+plugins.js
+file
+
+
+
+
+2016-05-10T04:09:13.119955Z
+304cb8a0c5db2f63f7573a4e4f84ca3b
+2016-06-02T16:10:39.762033Z
+2
+kaiqueorange
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+71868
+
+datetime
+dir
+
+velocity
+dir
+
+tags
+dir
+
+textrotator
+dir
+
+weather
+dir
+
+profile
+dir
+
+maps
+dir
+
+syntaxhighlighter
+dir
+
+sliders
+dir
+
+breadcrumb
+dir
+
+widgets
+dir
+
+draggable
+dir
+
+notifications
+dir
+
+calendar
+dir
+
+errors
+dir
+
+colorpicker
+dir
+
+page
+dir
+

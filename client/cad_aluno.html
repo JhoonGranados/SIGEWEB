@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>SIG - Escola</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/theme.css" class="style-theme">
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+</head>
+
+<body>
+
+<div class="cadastrosPrincipais">
+
+    <!--SECTION-->
+    <section class="l-main-container">
+        <!--Main Content-->
+        <section class="l-container">
+                    <div class="l-spaced">
+                        <!--Basic Elements-->
+                        <div class="l-box l-spaced-bottom">
+                            <div class="l-box-header">
+                                <h2 class="l-box-title"><span>Cadastro de usuários / Procurando:</span></h2>
+                            </div>
+                            <div class="l-box-body l-spaced">
+                                <form role="form" class="form-horizontal">
+                                    <div class="form-group">
+                                        <label for="basicText" class="col-sm-3 control-label">Nome:</label>
+                                        <div class="col-sm-9">
+                                            <input id="basicText" type="text" placeholder="Nome para pesquisa" class="form-control inputFiltroPesquisa">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="basicSelect" class="col-sm-3 control-label">Tipo de pesquisa</label>
+                                        <div class="col-sm-9">
+                                            <select id="basicSelect" class="form-control">
+                                                <option>Aluno</option>
+                                                <option>Professor</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-sm-offset-3 col-sm-9">
+                                        <!--Este botao estava submentendo a pagina por estar dentro de um form, mas eu nao queria bbmeter a pagina entao troquei ele por uma div-->
+                                        <!--tenho que falar com o kaique pra arrumar isso da maneira certa-->
+                                            <!--<div class="btn btn-dark" id="btn-pesquisar-alunos">Pesquisar</div>-->
+                                            <div class="btn btn-dark btnPesquisarDados">Pesquisar</div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div class="alert alert-success avisoSucesso" style="display:none;">
+                            mensagemDeSucessoOuFalha
+                        </div>
+
+                    </div>
+                    <div class="l-spaced" id="boxPesquisarAlunos" style="display:none;">
+                        <!--Basic Elements-->
+                        <div class="l-box l-spaced-bottom">
+                            <div class="l-box-header">
+                                <h2 class="l-box-title"><span>Resultado encontrados:</span></h2>
+                            </div>
+                            <div class="l-box-body l-spaced">
+                                <table class="table tableAluno">
+                                    <thead  style="background-color: #BFBEBE; border:none;">
+                                        <tr>
+                                            <th> </th>
+                                            <th>Matricula</th>
+                                            <th>Nome</th>
+                                            <th>Sobrenome</th>
+                                            <th>Turma</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <!--Conteudo sera injetado aqui arquivo jsCad_Aluno-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="l-box-body l-spaced text-right">
+                                <button type="button" class="btn btn-primary btnPreencherTurmaAluno" style="width: 150px" data-target="#modalCadastrarDadosAluno" data-toggle="modal">Cadastrar aluno</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="l-spaced" id="boxPesquisarProfessor" style="display:none;">
+                        <!--Basic Elements-->
+                        <div class="l-box l-spaced-bottom">
+                            <div class="l-box-header">
+                                <h2 class="l-box-title" ><span>Resultado encontrados:</span></h2>
+                            </div>
+                            <div class="l-box-body l-spaced">
+                                <table class="table tableProfessor">
+                                    <thead style="background-color: #BFBEBE; border:none;">
+                                        <tr>
+                                            <th> </th>
+                                            <th>Matricula</th>
+                                            <th>Nome</th>
+                                            <th>Sobrenome</th>
+                                            <th>Materia Ministrada</th>
+                                            <th>Ação</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <!--Conteudo sera injetado aqui arquivo jsCad_Aluno-->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="l-box-body l-spaced text-right">
+                                <button type="button" class="btn btn-primary btnPreencherTurmaProfessor" style="width: 150px" data-target="#modalCadastrarDadosProfessor" data-toggle="modal">Cadastrar Professor</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modalCadastrarDadosAluno" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" class="modal fade">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" data-dismiss="modal" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    <h4 id="largeModalLabel" class="modal-title">Cadastro de Dados do Aluno</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                    <form role="form" class="form-horizontal formDadosCadastroAluno">
+
+
+<!-- style="display:none;" -->
+                                        <div class="form-group " style="display:none;">
+                                            <label for="basicText" class="col-sm-3 control-label">Matricula:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="text" class="form-control inputMatriculaAluno">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Nome:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="text" class="form-control inputNomeAluno">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Sobrenome:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="text" class="form-control inputSobrenomeAluno">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Nome Pai:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="text" class="form-control inputNomePaiAluno">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Nome Mãe:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="text" class="form-control inputNomeMaeAluno">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Data nascimento:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="date" placeholder="Data de nascimento" class="form-control inputDataNascimentoAluno">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Telefone:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="tel" class="form-control inputTelefoneAluno">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">E-mail:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="email" class="form-control inputEmailAluno">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                        <label for="basicSelect" class="col-sm-3 control-label">Turma</label>
+                                        <div class="col-sm-9">
+                                            <select id="basicSelect" class="form-control inputSerieAluno">
+                                                <option>Matematica</option>
+                                                <!--Conteudo será injetado aqui jsCad_Aluno-->
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-dismiss="modal" class="btn btn-danger">Fechar</button>
+                                    <button type="button" class="btn btn-success btnSalvarAluno">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modalApresentarDadosAluno" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" class="modal fade">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" data-dismiss="modal" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    <h4 id="largeModalLabel" class="modal-title">Informacoes do Aluno</h4>
+                                </div>
+                                <div class="modal-body">
+                                <!--	<form role="form" class="form-horizontal">  -->
+                                    <div class="form-group informacoesAdicionaisAluno" style="text-align:center;">
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Matricula:</label>
+                                            <label for="basicText" class="control-label infoMatricula">Matricula</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Nome:</label>
+                                            <label for="basicText" class="control-label infoNome">Nome</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Nome Pai:</label>
+                                            <label for="basicText" class="control-label infoNomePai">Nome Pai</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                          <label for="basicText" class="control-label">Nome Mae:</label>
+                                            <label for="basicText" class="control-label infoNomeMae">Nome Mae</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Data Nascimento:</label>
+                                            <label for="basicText" class="control-label infoDataNascimento">Data Nascimento</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Turma:</label>
+                                            <label for="basicText" class="control-label infoTurma">Turma</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align:right; margin: 20px">
+                                    <button type="button" data-dismiss="modal" class="btn btn-danger">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modalCadastrarDadosProfessor" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" class="modal fade">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" data-dismiss="modal" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    <h4 id="largeModalLabel" class="modal-title">Cadastro de Dados do Professor</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <form role="form" class="form-horizontal formDadosCadastroProfessor">
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Nome:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="text" class="form-control inputNomeProfessor">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Sobrenome:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="text" class="form-control inputSobrenomeProfessor">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">CPF:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="text" class="form-control inputCpfProfessor">
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                          <label for="basicText" class="col-sm-3 control-label">Area Atuação:</label>
+                                          <div class="col-sm-9">
+                                              <select id="basicSelect" class="form-control inputMateriaProfessor">
+                                                  <option>Matematica</option>
+                                                  <!--Conteudo será injetado aqui jsCad_Aluno-->
+                                              </select>
+                                          </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Data nascimento:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="date" placeholder="Data de nascimento" class="form-control inputDataNascimentoProfessor">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">Telefone:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="tel" class="form-control inputTelefoneProfessor">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="basicText" class="col-sm-3 control-label">E-mail:</label>
+                                            <div class="col-sm-9">
+                                                <input id="basicText" type="email" class="form-control inputEmailProfessor">
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" data-dismiss="modal" class="btn btn-danger">Fechar</button>
+                                    <button type="button" class="btn btn-success btnSalvarProfessor">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="modalApresentarDadosProfessor" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true" class="modal fade">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" data-dismiss="modal" class="close"><span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+                                    <h4 id="largeModalLabel" class="modal-title">Informacoes do Professor</h4>
+                                </div>
+
+                                <div class="modal-body">
+                                <!--	<form role="form" class="form-horizontal">  -->
+                                    <div class="form-group informacoesAdicionaisProfessor" style="text-align:center;">
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Matricula:</label>
+                                            <label for="basicText" class="control-label infoMatricula">Matricula</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Nome:</label>
+                                            <label for="basicText" class="control-label infoNome">Nome</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">CPF:</label>
+                                            <label for="basicText" class="control-label infoCpf">CPF</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Materia Ministrada:</label>
+                                            <label for="basicText" class="control-label infoMateriaMinistrada">Materia Ministrada</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Data Nascimento:</label>
+                                            <label for="basicText" class="control-label infoDataNascimento">Data Nascimento</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Telefone:</label>
+                                            <label for="basicText" class="control-label infoTelefone">Telefone</label>
+                                        </div>
+
+                                        <div class="form-group col-sm-12">
+                                            <label for="basicText" class="control-label">Email:</label>
+                                            <label for="basicText" class="control-label infoEmail">Email</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align:right; margin: 20px">
+                                    <button type="button" data-dismiss="modal" class="btn btn-danger">Fechar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </div>
+    </body>
+</html>
+
+<!-- ===== JS =====-->
+<!-- jQuery-->
+<script src="js/basic/jquery.min.js"></script>
+<script src="js/basic/jquery-migrate.min.js"></script>
+<script src="js/shared/jquery-ui.min.js"></script>
+<script src="js/shared/jquery.ui.touch-punch.min.js"></script>
+
+<!--Script responsavel pela loading da tela-->
+<script src="jsCustomizado/Loading.js"></script>
+
+<!--Realiza as acoes do modal-->
+<script src="js/basic/bootstrap.min.js"></script>
+
+<!--script controller de aluno, simulando o padrao de controlladores do angular-->
+<script type="text/javascript" src="jsCustomizado/Aluno.js"></script>
+<!--script controller de professor, simulando o padrao de controlladores do angular-->
+<script type="text/javascript" src="jsCustomizado/Professor.js"></script>
+
+<!--JS Criado pala aquipe do projeto-->
+<script type="text/javascript" src="jsCustomizado/jsControleTurma.js"></script>
+<script type="text/javascript" src="jsCustomizado/jsCad_Aluno.js"></script>
+
+<!--Script para injeção de conteudo e nao ter que ficar escrevendo tod hora pq e chato pta caralho-->
+<script type="text/javascript" src="conteudoinject.js"></script>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>SIG - Escola</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/theme.css" class="style-theme">
+    
+     
+    <!-- CSS para o funcionamento do mult select -->
+    <link rel="stylesheet" href="css/multi-select.css">
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+    <!-- JS para funcionamento do multi select -->
+    <script type="text/javascript" src="js/jquery.multi-select.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <!--JS Criado pala aquipe do projeto-->
+	<script type="text/javascript" src="jsCustomizado/jsCad_Turma.js"></script>
+</head>
+    <body>
+      <div class="l-spaced">
+          <div class="l-row">
+            <div class="l-box-header">
+	          <div class="l-box l-spaced-bottom">
+              <h2 class="l-box-title"><span>Vincular disciplinas - </span> Criar Turma</h2>
+              <ul class="l-box-options">
+                <li><a href="#"><i class="fa fa-cogs"></i></a></li>
+                <li><a href="#" data-ason-type="fullscreen" data-ason-target=".l-box" data-ason-content="true" class="ason-widget"></a></li>
+                <li><a href="#" data-ason-type="refresh" data-ason-target=".l-box" data-ason-duration="1000" class="ason-widget"><i class="fa fa-rotate-right"></i></a></li>
+                <li><a href="#" data-ason-type="toggle" data-ason-find=".l-box" data-ason-target=".l-box-body" data-ason-content="true" data-ason-duration="200" class="ason-widget"></a></li>
+                <li><a href="#" data-ason-type="delete" data-ason-target=".l-box" data-ason-content="true" data-ason-animation="fadeOut" class="ason-widget"></a></li>
+              </ul>
+            </div>
+            <div class="l-box-body l-spaced form-horizontal">
+              <div class="form-group">
+              <div class="col-md-3">
+               </div>
+                <label for="fancySelect" class=" control-label">Turma(s) Cadastrada(s)</label>
+                  <select id="fancySelect">
+                     <option>Turma A</option>
+                      <option>Turma B</option>
+                      <option>Turma C</option>
+                      <option>Turma D</option>
+                      <option>Turma E</option>
+                  </select>
+               
+              </div>
+            </div>
+          </div>
+           
+            <div class="l-box l-col-md-12 l-spaced-bottom">
+              <div class="l-box-header">
+              
+                <h2 class="l-box-title"><span>Vincular</span> Disciplinas</h2>
+                <ul class="l-box-options">
+                  <li><a href="#"><i class="fa fa-cogs"></i></a></li>
+                  <li><a href="#" data-ason-type="fullscreen" data-ason-target=".l-box" data-ason-content="true" class="ason-widget"></a></li>
+                  <li><a href="#" data-ason-type="refresh" data-ason-target=".l-box" data-ason-duration="1000" class="ason-widget"><i class="fa fa-rotate-right"></i></a></li>
+                  <li><a href="#" data-ason-type="toggle" data-ason-find=".l-box" data-ason-target=".l-box-body" data-ason-content="true" data-ason-duration="200" class="ason-widget"></a></li>
+                  <li><a href="#" data-ason-type="delete" data-ason-target=".l-box" data-ason-content="true" data-ason-animation="fadeOut" class="ason-widget"></a></li>
+                </ul>
+              </div>
+              <div class="l-box-body l-spaced">
+                <form role="form">
+                    <div class="col-sm-12">
+                     	<select multiple class="searchable" name="searchable[]">
+						  <option value='matematica'>Matemática</option>
+						  <option value='portugues'>Português</option>
+						  <option value='quimica'>Quimica</option>
+						  <option value='historia' >Historia</option>
+						  <option value='fisica'>Ficisca</option>
+						</select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                
+                  <div class="col-sm-12" style="text-align:center; padding-top: 10px;">
+                    <button type="submit" class="btn btn-dark">Cadastrar</button>
+                    <button type="reset" class="btn btn-warning">Cancelar</button>
+                  </div>
+                </div>
+                </form>
+              </div>
+            </div>
+          </div>
+
+    </body>    
+</html>
+<script src="js/plugins/forms/elements/jquery.fancySelect.min.js"></script>
+<script src="js/plugins/forms/elements/jquery.autogrow.min.js"></script>        
+<script src="js/plugins/forms/elements/jquery.maskedinput.min.js"></script>
+<script src="js/plugins/forms/elements/jquery.textareaCounter.plugin.js"></script>
+<script src="js/calls/form.elements.js"></script>

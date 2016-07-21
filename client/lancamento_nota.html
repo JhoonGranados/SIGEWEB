@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>SIG - Escola</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/theme.css" class="style-theme">
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+    <body>
+        <!--SECTION-->
+        <section class="l-main-container">
+            <!--Main Content-->
+            <section class="l-container">
+                <div class="l-spaced">
+                    <!--Basic Elements-->
+                    <div class="l-box l-spaced-bottom">
+                        <div class="l-box-header">
+                            <h2 class="l-box-title"><span>Lançamento de notas / Procurando:</span></h2>
+                        </div>
+                        
+                        
+                         <div class="l-box-body l-spaced form-horizontal">
+              <div class="form-group">
+              <div class="col-md-3">
+               </div>
+                
+               
+              </div>
+            </div>
+                        <div class="l-box-body l-spaced">
+                            <form role="form" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="basicText" class="col-sm-3 control-label">Professor:</label>
+                                    <div class="col-sm-9">
+						                  <select id="fancySelect" style="height:30px; width:180px ">
+						                     <option>José - Matemática</option>
+						                      <option>Maria - Português</option>
+						                      <option>Fabio - Lose</option>
+						                      <option>João - Quimica</option>
+						                      <option>Edmundo - Lenda</option>
+						                  </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="basicText" class="col-sm-3 control-label">Turma:</label>
+                                    <div class="col-sm-9">
+                                       <select id="fancySelect" style="height:30px; width:180px ">
+						                     <option>Turma A</option>
+							                      <option>Turma B</option>
+							                      <option>Turma C</option>
+							                      <option>Turma D</option>
+							                      <option>Turma E</option>
+						                  </select>
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button class="btn btn-dark" id="btn-pesquisar-faltas-notas">Pesquisar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="l-spaced" id="box-resultados-notas-faltas" style="display:none;">
+                    <!--Basic Elements-->
+                    
+                    <div class="l-box l-spaced-bottom col-sm-10 col-sm-offset-1" >
+                        <div class="l-box-header col-sm-12">
+                            <h2 class="l-box-title"><span>Resultado encontrados:</span></h2>
+                        </div>
+                        <div class="l-box-body l-spaced">
+                            <form role="form" class="form-horizontal">
+                                <div class="l-box l-spaced-bottom col-sm-8 col-sm-offset-2" style="background-color: #BFBEBE; border:none;">
+                                    <div class="l-box-body l-spaced">
+                                        <div class="col-sm-4">
+                                            <h3><small>Professor: </small>José</h3>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <h3><small>Turma: </small>Turma A</h3>
+                                        </div>
+                                       
+                                        <div style="clear:both;"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="l-box-body l-spaced "  style="background-color: #D8D8D8">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Disciplina</th>
+                                        <th>Faltas</th>
+                                        <th>Notas</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Matemática</td>
+                                        <td><input type="number" class="form-control" /></td>
+                                        <td><input type="number" step="0.1" class="form-control" /></td>
+
+                                    </tr>
+                                    <tr>
+                                        <td>Português</td>
+                                        <td><input type="number" class="form-control" /></td>
+                                        <td><input type="number" step="0.1" class="form-control" /></td>
+
+                                    </tr>
+                                   
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="l-box-body l-spaced text-right">
+                            <button type="button" class="btn btn-primary">Salvar notas</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+    </body>
+</html>
+
+<!-- ===== JS =====-->
+<!-- jQuery-->
+<script src="js/basic/jquery.min.js"></script>
+<script src="js/basic/jquery-migrate.min.js"></script>
+<script src="js/shared/jquery-ui.min.js"></script>
+<script src="js/shared/jquery.ui.touch-punch.min.js"></script>
+
+

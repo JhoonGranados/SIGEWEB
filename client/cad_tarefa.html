@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <title>SIG - Escola</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/basic.css">
+    <link rel="stylesheet" href="css/general.css">
+    <link rel="stylesheet" href="css/theme.css" class="style-theme">
+    <script type="text/javascript" src="js/jquery-1.12.3.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+</head>
+    <body>
+        <!--SECTION-->
+        <section class="l-main-container">
+            <!--Main Content-->
+            <section class="l-container">
+                   <div class="l-spaced">
+                    <!--Basic Elements-->
+                    <div class="l-box l-spaced-bottom">
+                        <div class="l-box-header">
+                            <h2 class="l-box-title"><span>Cadastro de Atividades:</span></h2>
+                        </div>
+                        <div class="l-box-body l-spaced">
+                            <form role="form" class="form-horizontal">
+                                <div class="form-group">
+                                    <label for="basicText" class="col-sm-3 control-label">Título:</label>
+                                    <div class="col-sm-9">
+                                        <input id="basicText" type="text" placeholder="Título da atividade" class="form-control">
+                                    </div>
+                                </div>
+                               <div class="form-group">
+				                  <label for="counterTextarea" class="col-sm-3 control-label">Descrição</label>
+				                  <div class="col-sm-9">
+				                    <textarea id="counterTextarea" rows="3" placeholder="Descrição" class="form-control"></textarea>
+				                  </div>
+				                </div>
+				                <div class="form-group">
+                                    <label for="basicText" class="col-sm-3 control-label">Data de entrega:</label>
+                                    <div class="col-sm-9">
+                                        <input id="basicText" type="date" placeholder="Data de entrega" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="basicText" class="col-sm-3 control-label">Turma:</label>
+                                    <div class="col-sm-9">
+                                        <input id="basicText" type="text" placeholder="Turma" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-sm-offset-3 col-sm-9">
+                                        <button class="btn btn-warning" id="btn-pesquisar-alunos">Salvar</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                 <div class="l-box l-spaced-bottom">
+            </section>
+        </section>
+    </body>
+</html>
+
+<script src="js/plugins/forms/elements/jquery.autogrow.min.js"></script>        
+<script src="js/plugins/forms/elements/jquery.maskedinput.min.js"></script>
+<script src="js/plugins/forms/elements/jquery.textareaCounter.plugin.js"></script>
+<script src="js/calls/form.elements.js"></script>
